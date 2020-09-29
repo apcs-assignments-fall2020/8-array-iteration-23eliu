@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class MyMain {
 
     // Reverses an array
@@ -16,10 +18,13 @@ public class MyMain {
         int big = arr[0];
         int second = 0;
         
-        for (int i = 1; i < arr.length-1; i++) {
+        for (int i = 1; i < arr.length; i++) {
             if (arr[i] > big) {
                 second = big;
                 big = arr[i];
+            }
+            else if (arr[i] > second) {
+                second = arr[i];
             }
         }
         return second;
@@ -27,12 +32,27 @@ public class MyMain {
 
     // Checks to see if an array contains a geometric series
     public static boolean isGeometric(int[] arr) {
-        // REPLACE WITH YOUR CODE HERE
-        return false;
+        double div = (double) arr[1]/arr[0];
+        for (int i = 2; i < arr.length; i++) {
+            if ((double) arr[i]/arr[i-1] != div) {
+                return false;
+            }
+        }
+
+        return true;
     }
 
 
     public static void main(String[] args) {
-        // YOUR CODE HERE
+        System.out.println("This is the reversed version of your array: " + Arrays.toString(reverse(arr)));
+        System.out.println("This is the second largest value in your array: " + secondLargest(arr));
+
+        if (isGeometric(arr) == false) {
+            System.out.println("Your array is not a geometric sequence.");
+        }
+        else {
+            System.out.println("Your array is a geometric sequence.");
+        }
+        
     }
 }
