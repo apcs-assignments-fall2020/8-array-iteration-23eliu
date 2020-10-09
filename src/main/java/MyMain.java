@@ -44,6 +44,8 @@ public class MyMain {
 
 
     public static void main(String[] args) {
+        int[] arr = {1, 2, 4, 8, 16, 32};
+
         System.out.println("This is the reversed version of your array: " + Arrays.toString(reverse(arr)));
         System.out.println("This is the second largest value in your array: " + secondLargest(arr));
 
